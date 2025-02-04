@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+// src/App.js
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './components/Home';
+import CriarTarefa from './components/CriarTarefa';
+import LerTarefa from './components/LerTarefa';
+import AtualizarTarefa from './components/AtualizarTarefa';
+import ExcluirTarefa from './components/ExcluirTarefa';
+//exact
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/"  element= {<Home />} />
+        <Route path="/criar" element={<CriarTarefa />} />
+        <Route path="/ler/:id" element={<LerTarefa />} />
+        <Route path="/atualizar/:id" element={<AtualizarTarefa />} />
+        <Route path="/excluir/:id" element={<ExcluirTarefa />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
